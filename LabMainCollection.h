@@ -13,6 +13,9 @@
 
 #endif /* LABMAINCOLLECTION_H_ */
 
+
 int lab1_main_a(int, char**);
 int lab1_main_b(int, char**);
 int lab2_main(int, char**);
+int lab3_main(int, char**);
+
