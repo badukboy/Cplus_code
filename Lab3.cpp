@@ -53,7 +53,6 @@ bool get_command(const string& prompt, int& n) {
 
 void display_n(fstream& file, const int n) {
 	string id;
-	int score;
 	ios::pos_type pos = sizeof(Record) * (n - 1);
 	file.seekg(pos, ios_base::beg);
 	Record r;
@@ -69,7 +68,6 @@ void display_n(fstream& file, const int n) {
 
 void display_all_fromn(fstream& file, const int n) {
 	string id;
-	int score;
 	ios::pos_type pos = sizeof(Record) * (n - 1);
 	file.seekg(pos, ios_base::beg);
 	Record r;
@@ -83,8 +81,6 @@ void display_all_fromn(fstream& file, const int n) {
 		cout << "id: " << id << " score: " << r.score << endl;
 	}
 	while (1) {
-		pos += sizeof(Record);
-		file.seekg(pos, ios_base::beg);
 		file.read(r.id, sizeof(Record));
 		if (!file) {
 			file.clear();
@@ -103,6 +99,7 @@ int lab3_main(int argc, char** argv) {
 	Record sr;
 	int n;
 	cout << argv[1] << endl;
+	cout << "size of int: " << sizeof(int) << endl;
 	fstream file(argv[1],
 			ios_base::in | ios_base::out | ios_base::trunc | ios_base::binary);
 	if (!file) {
