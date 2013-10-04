@@ -71,7 +71,7 @@ void display_all_fromn(fstream& file, const int n) {
 	ios::pos_type pos = sizeof(Record) * (n - 1);
 	file.seekg(pos, ios_base::beg);
 	Record r;
-	file.read(r.id, sizeof(Record));
+	file.read((char *)&r, sizeof(Record));
 	if (!file) {
 		cout << "seek past the EOF." << endl;
 		file.clear();
@@ -80,6 +80,9 @@ void display_all_fromn(fstream& file, const int n) {
 		string id(r.id);
 		cout << "id: " << id << " score: " << r.score << endl;
 	}
+
+
+
 	while (1) {
 		file.read(r.id, sizeof(Record));
 		if (!file) {
@@ -113,6 +116,7 @@ int lab3_main(int argc, char** argv) {
 					&& get_valid_int("please inter score \n ", sr.score,
 							is_valid_score)) {
 				strcpy(sr.id, srstring.c_str());
+				//this is a error, you have to seek to the postion you will write.
 				file.write(sr.id, sizeof(Record));
 			}
 		} else if (n == 2) {
