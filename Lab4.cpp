@@ -45,12 +45,10 @@ string rtrim(const string& s, bool (*is_junk)(char)) {
 	return s.substr(0, stoppos + 1);
 }
 
-
 string squeeze(const string& s, char c) {
 	string result = s;
 	size_t found = result.find(c);
-	while (found != string::npos) {
-		++found;
+	while (found++ != string::npos) {
 		while (found != result.length()) {
 			if (result[found] != c)
 				break;
@@ -65,8 +63,8 @@ int lab4_main(int argc, char** argv) {
 	string s("a123kflkadfj123kjlajfkd123kkkk");
 	string junk("123");
 	cout << delete_all(s, junk) << endl;
-	cout << ltrim(" \t    ", is_junk) << endl;
-	cout << rtrim("012345      ", is_junk) << endl;
+	cout << ltrim(" \t     ", is_junk) << endl;
+	cout << rtrim("012345   \t   ", is_junk) << endl;
 	cout << squeeze("a1111gdsga11111gggdsg11111", '1') << endl;
 	return 0;
 }

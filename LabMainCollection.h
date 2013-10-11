@@ -19,4 +19,5 @@ int lab1_main_b(int, char**);
 int lab2_main(int, char**);
 int lab3_main(int, char**);
 int lab4_main(int, char**);
+int lab5_main(int, char**);
 
