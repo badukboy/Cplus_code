@@ -17,6 +17,7 @@ int main(int argc, char** argv) {
 	//lab2_main(argc, argv);
 	//lab3_main(argc,argv);
 	//lab4_main(argc,argv);
-	lab5_main(argc,argv);
+	//lab5_main(argc,argv);
+	lab6_main(argc,argv);
 	return 0;
 }

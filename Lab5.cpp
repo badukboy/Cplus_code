@@ -71,7 +71,7 @@ vector<vector<int> > permute(size_t n) {
 
 
 int lab5_main(int argc, char** argv) {
-	vector<vector<int> > v = permute(10);
+	vector<vector<int> > v = permute(4);
 	cout<< v.size() << endl;
 	print(v);
 	return 0;
