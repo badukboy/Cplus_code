@@ -30,7 +30,7 @@ inline istream& operator>>(istream& is, Grades& g) {
 	int score;
 	size_t i, count;
 
-	if(!(is >> g.id)){
+	if (!(is >> g.id)) {
 		return is;
 	}
 
@@ -69,27 +69,28 @@ public:
 		auto s1it = g1.scores.find(courseName_);
 		auto s2it = g2.scores.find(courseName_);
 		auto s1 = s1it == g1.scores.end() ? -1 : s1it->second;
-		auto s2 = s2it == g2.scores.end() ? -1 : s2it ->second;
-		return s1 > s2 ;
+		auto s2 = s2it == g2.scores.end() ? -1 : s2it->second;
+		return s1 > s2;
 	}
 };
 
-class Stats{
+class Stats {
 private:
-	int sum_,count_;
+	int sum_, count_;
 	double average_;
 	string name_;
 public:
-	Stats(string n):name_(n){
+	Stats(string n) :
+			name_(n) {
 		sum_ = 0;
 		count_ = 0;
 		average_ = 0;
 	}
-	Stats& operator()(const Grades& g){
-		if(g.scores.find(name_) != g.scores.end()){
+	Stats& operator()(const Grades& g) {
+		if (g.scores.find(name_) != g.scores.end()) {
 			sum_ += g.scores.find(name_)->second;
 			count_++;
-			average_ = (double)sum_ / count_;
+			average_ = (double) sum_ / count_;
 		}
 		return *this;
 	}
@@ -101,15 +102,15 @@ public:
 int lab6_main(int argc, char** argv) {
 	vector<Grades> vog;
 	Grades g;
-	while(cin >> g){
+	while (cin >> g) {
 		vog.push_back(g);
 	}
 
 	cerr << "begin sorting" << endl;
-	sort(vog.begin(),vog.end(),Cmp("COMP3512"));
+	sort(vog.begin(), vog.end(), Cmp("COMP3512"));
 	cerr << "done sorting" << endl;
 
-	for(auto x : vog){
+	for (auto x : vog) {
 		cout << x << endl;
 	}
 
