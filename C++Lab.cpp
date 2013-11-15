@@ -6,10 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
 #include "LabMainCollection.h"
-
-using namespace std;
 
 int main(int argc, char** argv) {
 	//lab1_main_a(argc, argv);
@@ -19,6 +16,7 @@ int main(int argc, char** argv) {
 	//lab4_main(argc,argv);
 	//lab5_main(argc,argv);
 	//lab6_main(argc,argv);
-	lab7_main(argc,argv);
+	//lab7_main(argc,argv);
+	lab8_main(argc, argv);
 	return 0;
 }
